@@ -1,0 +1,52 @@
+{
+  "name": "quanquan-goal-manager",
+  "version": "1.5.0",
+  "description": "权权目标管理本地快速便携文件夹版（多目标条目版）",
+  "main": "main.js",
+  "author": "权权目标管理",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist:dir": "electron-builder --win dir --x64 --publish never",
+    "release:win": "npm run dist:dir"
+  },
+  "devDependencies": {
+    "electron": "^33.3.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.quanquan.goalmanager",
+    "productName": "权权目标管理",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "app/**/*"
+    ],
+    "asar": true,
+    "publish": [],
+    "win": {
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "权权目标管理",
+      "artifactName": "权权目标管理安装程序-${version}.${ext}"
+    }
+  }
+}
